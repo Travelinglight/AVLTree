@@ -33,6 +33,7 @@ private :
 
 	int calcHeight(const Node<T1, T2> * const node) const;
 	int calcSize(const Node<T1, T2> * const node) const;
+	void printNode(Node<T1, T2> *node) const;
 	Node<T1, T2>* rotateLL(Node<T1, T2> *N1);
 	Node<T1, T2>* rotateRR(Node<T1, T2> *N1);
 	Node<T1, T2>* rotateLR(Node<T1, T2> *N1);
@@ -59,6 +60,7 @@ public :
 
 	int getSize() const { return size; }
 	T2 *find(const T1 &id) const;
+	bool print() const;
 };
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -499,10 +501,42 @@ Node<T1, T2>* AVLTree<T1, T2>::plug(Node<T1, T2> *node, const T1 &id) {
 	return node;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//        NAME: insert
+// DESCRIPTION: insert a node into the AVL tree.
+//   ARGUMENTS: const T1 &id - the id of the new node that is to be inserted
+// USES GLOBAL: none
+// MODIFIES GL: root (possible)
+//     RETURNS: bool
+//      AUTHOR: Kingston Chan
+// AUTHOR/DATE: KC 2015-02-10
+//							KC 2015-02-10
+////////////////////////////////////////////////////////////////////////////////
 template<class T1, class T2>
 bool AVLTree<T1, T2>::insert(const T1 &id) {
 	root = plug(root, id);
 	return true;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//        NAME: print
+// DESCRIPTION: print a tree with inorder traversal.
+//   ARGUMENTS: none
+// USES GLOBAL: none
+// MODIFIES GL: none
+//     RETURNS: bool
+//      AUTHOR: Kingston Chan
+// AUTHOR/DATE: KC 2015-02-11
+//							KC 2015-02-11
+////////////////////////////////////////////////////////////////////////////////
+template<class T1, class T2>
+bool AVLTree<T1, T2>::print() const {
+	if (root != NULL) {
+		root->print();
+		return true;
+	}
+	else
+		return false;
 }
 
 #endif

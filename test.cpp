@@ -44,8 +44,25 @@ int main() {
 	{	
 		cout << "-------------------------------------------" << endl;
 		AVLTree<A, int> AT7(cmp);
+		for (int i = 7; i > 0; i--)
+			AT7.insert(i);
+		AT7.print();
+		AT7.empty();
+		cout << "-------------------------------------------" << endl;
 		for (int i = 1; i < 8; i++)
 			AT7.insert(i);
+		AT7.print();
+		AT7.empty();
+		cout << "-------------------------------------------" << endl;
+		AT7.insert(3);
+		AT7.insert(1);
+		AT7.insert(2);
+		AT7.insert(5);
+		AT7.insert(4);
+		AT7.insert(-2);
+		AT7.insert(-1);
+		AT7.print();
+
 	}
 	system("pause");
 }

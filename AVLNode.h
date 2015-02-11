@@ -73,6 +73,7 @@ public:
 	int getHeight() const { return height; }
 	T1 getID() const { return ID; }
 	T2 *getRcd() const { return Rcd; }
+	void print() const;
 };
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -319,11 +320,6 @@ bool Node<T1, T2>::operator=(const T1 &id) {
 template<class T1, class T2>
 bool Node<T1, T2>::AddLft(Node<T1, T2> *lft) {
 
-	if (Lft == lft)
-		return true;
-
-	if ((Lft != NULL) && (lft != NULL))
-		delete Lft;
 	Lft = lft; // assign the left son
 
 	// update the height
@@ -352,8 +348,6 @@ template<class T1, class T2>
 bool Node<T1, T2>::AddLft(const T1 &lftID, const T2 * const lftRcd) {
 
 	Node *Tmp = new Node(lftID, lftRcd);
-	if (Lft != NULL)
-		delete Lft;
 	Lft = Tmp;
 
 	// update the height
@@ -380,11 +374,6 @@ bool Node<T1, T2>::AddLft(const T1 &lftID, const T2 * const lftRcd) {
 template<class T1, class T2>
 bool Node<T1, T2>::AddRgt(Node<T1, T2> *rgt) {
 
-	if (Rgt == rgt)
-		return true;
-
-	if ((Rgt != NULL) && (rgt != NULL))
-		delete Rgt;
 	Rgt = rgt; // assign the left son
 
 	// update the height
@@ -412,12 +401,7 @@ bool Node<T1, T2>::AddRgt(Node<T1, T2> *rgt) {
 template<class T1, class T2>
 bool Node<T1, T2>::AddRgt(const T1 &rgtID, const T2 * const RgtRcd = NULL) {
 
-	if (cmp == NULL)
-		throw AVLERR("compare function not initialized");
-
 	Node *Tmp = new Node(rgtID, RgtRcd);
-	if (Rgt != NULL)
-		delete Rgt;
 	Rgt = Tmp;
 
 	// update the height
@@ -428,6 +412,32 @@ bool Node<T1, T2>::AddRgt(const T1 &rgtID, const T2 * const RgtRcd = NULL) {
 		height = MAX(height, Rgt->height + 1);
 
 	return true;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//        NAME: print
+// DESCRIPTION: To print the Node's ID, height and two sons.
+//   ARGUMENTS: none
+// USES GLOBAL: none
+// MODIFIES GL: none
+//     RETURNS: void
+//      AUTHOR: Kingston Chan
+// AUTHOR/DATE: KC 2015-02-11
+//							KC 2015-02-11
+////////////////////////////////////////////////////////////////////////////////
+template<class T1, class T2>
+void Node<T1, T2>::print() const{
+	cout << ID << ": h-" << height << "  l-";
+	if (Lft != NULL)
+		cout << '(' << Lft->getID() << ')';
+	cout << "  r-";
+	if (Rgt != NULL)
+		cout << '(' << Rgt->getID() << ')';
+	cout << endl;
+	if (Lft != NULL)
+		Lft->print();
+	if (Rgt != NULL)
+		Rgt->print();
 }
 
 #endif
