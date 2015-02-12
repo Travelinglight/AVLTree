@@ -41,28 +41,62 @@ int main() {
 		cout << *(AT6.find(6)) << endl;
 		AT6.empty();
 	}
-	{	
+	{
 		cout << "-------------------------------------------" << endl;
 		AVLTree<A, int> AT7(cmp);
 		for (int i = 7; i > 0; i--)
-			AT7.insert(i);
+			AT7.Insert(i);
 		AT7.print();
 		AT7.empty();
 		cout << "-------------------------------------------" << endl;
 		for (int i = 1; i < 8; i++)
-			AT7.insert(i);
+			AT7.Insert(i);
 		AT7.print();
 		AT7.empty();
 		cout << "-------------------------------------------" << endl;
-		AT7.insert(3);
-		AT7.insert(1);
-		AT7.insert(2);
-		AT7.insert(5);
-		AT7.insert(4);
-		AT7.insert(-2);
-		AT7.insert(-1);
+		AT7.Insert(3);
+		AT7.Insert(1);
+		AT7.Insert(2);
+		AT7.Insert(5);
+		AT7.Insert(4);
+		AT7.Insert(-2);
+		AT7.Insert(-1);
 		AT7.print();
+	}
+	{
+		AVLTree<A, int> AT8(cmp);
+		for (int i = 1; i < 16; i++)
+			AT8.Insert(i);
+		cout << "-------------------------------------------" << endl;
+		AT8.print();
+		//AT8.Delete(12);
+		//cout << "-------------------------------------------" << endl;
 
+		/*AT8.print();
+		for (int i = 1; i <= 8; i++)
+			AT8.Delete(i);
+		cout << "-------------------------------------------" << endl;
+		AT8.print();*/
+
+		/*for (int i = 15; i >= 8; i--)
+			AT8.Delete(i);
+		cout << "-------------------------------------------" << endl;
+		AT8.print();*/
+
+		/*for (int i = 15; i >= 8; i--)
+			AT8.Insert(i);
+		cout << "-------------------------------------------" << endl;
+		AT8.print();
+		for (int i = 1; i < 8; i++)
+			AT8.Delete(i);
+		cout << "-------------------------------------------" << endl;
+		AT8.print();*/
+
+		for (int i = 0; i < 8; i++)
+			AT8.Delete(AT8.rootID());
+		cout << "-------------------------------------------" << endl;
+		AT8.print();
+		
 	}
 	system("pause");
 }
