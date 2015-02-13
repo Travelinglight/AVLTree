@@ -3,13 +3,15 @@ AVLTree(C++)
 This is the implementation of AVL tree in C++ using template.
 Template
 --------------------
-- **T1** &#160;The type of the Node's ID
-- **T2** &#160;The type of the Node's record
+- **T1** &#160;The type of the Node's ID;
+- **T2** &#160;The type of the Node's record;
+
 Members
 --------------------
 - **Node<T1, T2> \*root** &#160; The root of the AVL tree;
 - **int size** &#160; The number of nodes of the AVL tree;
 - **int (\*cmp)(const T1 &a, const T2 &b)** &#160; The function used to compare two T1s;
+
 User Interface
 --------------------
 - **AVLTree()** &#160; The default constructor of AVL tree;
