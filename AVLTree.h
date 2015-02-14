@@ -468,7 +468,6 @@ private :
 
 	int calcHeight(const Node<T1, T2> * const node) const;
 	int calcSize(const Node<T1, T2> * const node) const;
-	void printNode(Node<T1, T2> *node) const;
 	Node<T1, T2>* rotateLL(Node<T1, T2> *N1);
 	Node<T1, T2>* rotateRR(Node<T1, T2> *N1);
 	Node<T1, T2>* rotateLR(Node<T1, T2> *N1);
