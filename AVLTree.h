@@ -628,10 +628,10 @@ AVLTree<T1, T2>::AVLTree(const AVLTree<T1, T2> &Old) {
 ////////////////////////////////////////////////////////////////////////////////
 template<class T1, class T2>
 AVLTree<T1, T2>::~AVLTree() {
-	cout << "Destructor: ";
-	if (root != NULL)
-		cout << root->getID();
-	cout << endl;
+	//cout << "Destructor: ";
+	//if (root != NULL)
+	//	cout << root->getID();
+	//cout << endl;
 	delete root;
 }
 

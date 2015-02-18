@@ -1,6 +1,7 @@
 #include "AVLTree.h"
 #include <string>
 using namespace std;
+
 class A {
 public :
 	int x;
