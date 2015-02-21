@@ -7,11 +7,21 @@ public :
 	int x;
 	A(int id = 0) { x = id; }
 	friend ostream &operator<<(ostream &out, A a);
+	friend bool operator<(const A &a, const A &b);
+	friend bool operator>(const A &a, const A &b);
 };
 
 ostream &operator<<(ostream &out, A a) {
 	cout << a.x;
 	return out;
+}
+
+bool operator<(const A &a, const A &b) {
+	return (a.x < b.x);
+}
+
+bool operator>(const A &a, const A &b) {
+	return (a.x > b.x);
 }
 
 int cmp(const A &a, const A &b) {
@@ -23,6 +33,12 @@ int cmp(const A &a, const A &b) {
 }
 
 int main() {
+	{
+		AVLTree<int> AT1;
+		for (int i = 1; i < 8; i++)
+			AT1.Insert(i);
+		AT1.print();
+	}
 	{
 		A a(3), b(4);
 		AVLTree<A> AT1;
@@ -73,11 +89,11 @@ int main() {
 		//AT8.Delete(12);
 		//cout << "-------------------------------------------" << endl;
 
-		/*AT8.print();
+		AT8.print();
 		for (int i = 1; i <= 8; i++)
 			AT8.Delete(i);
 		cout << "-------------------------------------------" << endl;
-		AT8.print();*/
+		AT8.print();
 
 		/*for (int i = 15; i >= 8; i--)
 			AT8.Delete(i);
@@ -93,10 +109,10 @@ int main() {
 		cout << "-------------------------------------------" << endl;
 		AT8.print();*/
 
-		for (int i = 0; i < 8; i++)
+		/*for (int i = 0; i < 8; i++)
 			AT8.Delete(AT8.rootID());
 		cout << "-------------------------------------------" << endl;
-		AT8.print();
+		AT8.print()*/
 		
 	}
 	system("pause");

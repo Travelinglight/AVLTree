@@ -49,6 +49,15 @@ inline int MAX(int a, int b) {
 	return a > b ? a : b;
 }
 
+template<typename T1>
+int dCmp(const T1 &a, const T1 &b) {
+	if (a > b)
+		return 1;
+	if (a < b)
+		return -1;
+	return 0;
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////Tree node/////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -480,9 +489,9 @@ public :
 	// constructors and destructor
 	AVLTree();
 	AVLTree(int(*compare)(const T1 &a, const T1 &b));
-	AVLTree(const Node<T1, T2> &head, int(*compare)(const T1 &a, const T1 &b) = NULL);
-	AVLTree(const T1 &rootID, const T2 * const rootRcd = NULL, int(*compare)(const T1 &a, const T1 &b) = NULL);
-	AVLTree(const T1 &rootID, const T2 &rootRcd, int(*compare)(const T1 &a, const T1 &b) = NULL);
+	AVLTree(const Node<T1, T2> &head, int(*compare)(const T1 &a, const T1 &b) = dCmp);
+	AVLTree(const T1 &rootID, const T2 * const rootRcd = NULL, int(*compare)(const T1 &a, const T1 &b) = dCmp);
+	AVLTree(const T1 &rootID, const T2 &rootRcd, int(*compare)(const T1 &a, const T1 &b) = dCmp);
 	AVLTree(const AVLTree<T1, T2> &New);
 	~AVLTree();
 
@@ -517,7 +526,7 @@ template<class T1, class T2>
 AVLTree<T1, T2>::AVLTree() {
 	root = NULL;
 	size = 0;
-	cmp = NULL;
+	cmp = dCmp;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
