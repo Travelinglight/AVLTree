@@ -532,7 +532,7 @@ AVLTree<T1, T2>::AVLTree() {
 ////////////////////////////////////////////////////////////////////////////////
 //        NAME: AVLTree
 // DESCRIPTION: Constructor of AVLTree class.
-//   ARGUMENTS: int(*compare)(const T1 &a, const T1 &b) = NULL - the compare function
+//   ARGUMENTS: int(*compare)(const T1 &a, const T1 &b) - the compare function
 // USES GLOBAL: none
 // MODIFIES GL: root, size, cmp;
 //     RETURNS: none
@@ -550,7 +550,7 @@ AVLTree<T1, T2>::AVLTree(int(*compare)(const T1 &a, const T1 &b)) {
 //        NAME: AVLTree
 // DESCRIPTION: Constructor of AVLTree class.
 //   ARGUMENTS: const Node<T1, T2> &head - the root node of the AVL tree
-//				int(*compare)(const T1 &a, const T1 &b) = NULL - the compare function
+//				int(*compare)(const T1 &a, const T1 &b) = dCmp - the compare function
 // USES GLOBAL: none
 // MODIFIES GL: root, size, cmp;
 //     RETURNS: none
@@ -570,7 +570,7 @@ AVLTree<T1, T2>::AVLTree(const Node<T1, T2> &head, int(*compare)(const T1 &a, co
 // DESCRIPTION: Constructor of AVLTree class.
 //   ARGUMENTS: const T1 &rootID - the ID of the root node
 //				const T2 * const rootRcd = NULL - the initial root record
-//				int(*compare)(const T1 &a, const T1 &b) = NULL - the compare function
+//				int(*compare)(const T1 &a, const T1 &b) = dCmp - the compare function
 // USES GLOBAL: none
 // MODIFIES GL: root, size, cmp;
 //     RETURNS: none
@@ -590,7 +590,7 @@ AVLTree<T1, T2>::AVLTree(const T1 &rootID, const T2 * const rootRcd, int(*compar
 // DESCRIPTION: Constructor of AVLTree class.
 //   ARGUMENTS: const T1 &rootID - the ID of the root node
 //				const T2 &rootRcd - the initial root record
-//				int(*compare)(const T1 &a, const T1 &b) = NULL - the compare function
+//				int(*compare)(const T1 &a, const T1 &b) = dCmp - the compare function
 // USES GLOBAL: none
 // MODIFIES GL: root, size, cmp;
 //     RETURNS: none
