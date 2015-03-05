@@ -560,7 +560,7 @@ AVLTree<T1, T2>::AVLTree(int(*compare)(const T1 &a, const T1 &b)) {
 ////////////////////////////////////////////////////////////////////////////////
 template<class T1, class T2>
 AVLTree<T1, T2>::AVLTree(const Node<T1, T2> &head, int(*compare)(const T1 &a, const T1 &b)) {
-	root = new Node<T1, T2>(head.ID, head.Rcd);
+	root = new Node<T1, T2>(head.getID(), head.getRcd());
 	size = calcSize(root);
 	cmp = compare;
 }
